@@ -910,7 +910,7 @@ OAuthPopup.prototype.pooling = function pooling (redirectUri) {
       try {
         var popupWindowPath = getFullUrlPath(this$1.popup.location);
 
-        if (popupWindowPath === redirectUriPath) {
+        if (popupWindowPath.indexOf("auth/callback") !== -1) {
           if (this$1.popup.location.search || this$1.popup.location.hash) {
             var query = parseQueryString(this$1.popup.location.search.substring(1).replace(/\/$/, ''));
             var hash = parseQueryString(this$1.popup.location.hash.substring(1).replace(/[\/$]/, ''));
