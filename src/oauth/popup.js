@@ -50,7 +50,7 @@ export default class OAuthPopup {
         try {
           const popupWindowPath = getFullUrlPath(this.popup.location)
 
-          if (popupWindowPath === redirectUriPath) {
+          if (popupWindowPath.indexOf("auth/callback") !== -1) {
             if (this.popup.location.search || this.popup.location.hash) {
               const query = parseQueryString(this.popup.location.search.substring(1).replace(/\/$/, ''));
               const hash = parseQueryString(this.popup.location.hash.substring(1).replace(/[\/$]/, ''));
